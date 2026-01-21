@@ -364,6 +364,45 @@
       margin-top: 10px;
       font-weight: 600;
     }
+    .project-thumb{
+  width:100%;
+  height:130px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  margin-bottom:10px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.linkbtn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 13px;
+}
+.linkbtn:hover{
+  background: rgba(255,255,255,.10);
+  text-decoration:none;
+}
+.linkbtn.gold{
+  border-color: rgba(212,175,55,.35);
+  background: rgba(212,175,55,.12);
+}
+.linkbtn.gold:hover{
+  background: rgba(212,175,55,.18);
+}
 
     /* Achievements & Certificates */
     .split{
@@ -594,71 +633,95 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="card">
-      <div class="section-title">
-        <h2>Projects</h2>
-        <p>Selected academic and engineering works</p>
+   <section id="projects" class="card">
+  <div class="section-title">
+    <h2>Projects</h2>
+    <p>Selected academic and engineering works (with evidence + GitHub)</p>
+  </div>
+
+  <div class="projects">
+    <!-- 1) News Portal -->
+    <div class="project">
+      <img class="project-thumb" src="assets/news-portal.jpg" alt="News Portal Website Screenshot">
+      <h3>News Portal Website (Dynamic News System)</h3>
+      <p><b>Category:</b> Web Development</p>
+      <p style="margin-top:8px;">
+        Built a news portal with a dynamic publishing system to manage and display updates efficiently.
+      </p>
+      <div class="tags" style="margin-top:10px;">
+        <span class="tag">Web</span>
+        <span class="tag teal">Dynamic</span>
       </div>
 
-      <div class="projects">
-        <div class="project">
-          <h3>News Portal Website (Dynamic News System)</h3>
-          <p><b>Category:</b> Web Development</p>
-          <p style="margin-top:8px;">A news portal with a dynamic news publishing system to manage and display updates efficiently.</p>
-          <div class="tags" style="margin-top:10px;">
-            <span class="tag">Web</span>
-            <span class="tag teal">Dynamic</span>
-          </div>
-          <span class="more">Add: screenshots / GitHub repo link →</span>
-        </div>
-
-        <div class="project">
-          <h3>IC Fault Detector</h3>
-          <p><b>Category:</b> Electronics / Testing</p>
-          <p style="margin-top:8px;">A system designed to detect faults in ICs through structured input-output verification.</p>
-          <div class="tags" style="margin-top:10px;">
-            <span class="tag">Electronics</span>
-            <span class="tag teal">Testing</span>
-          </div>
-          <span class="more">Add: circuit image / result photo →</span>
-        </div>
-
-        <div class="project">
-          <h3>Real-Time Speech ↔ Sign Language Translation (CV + Robotic Hand)</h3>
-          <p><b>Category:</b> Computer Vision + Robotics</p>
-          <p style="margin-top:8px;">A real-time bidirectional translation system using computer vision and a robotic hand for sign gestures.</p>
-          <div class="tags" style="margin-top:10px;">
-            <span class="tag">CV</span>
-            <span class="tag teal">Robotics</span>
-          </div>
-          <span class="more">Add: demo video link / photos →</span>
-        </div>
-
-        <div class="project">
-          <h3>Lock-in Amplifier with FPGA (Cyclone IV)</h3>
-          <p><b>Category:</b> FPGA / Instrumentation</p>
-          <p style="margin-top:8px;">Implemented a lock-in amplifier system using FPGA Cyclone IV for signal extraction in noisy environments.</p>
-          <div class="tags" style="margin-top:10px;">
-            <span class="tag">FPGA</span>
-            <span class="tag teal">Signal Processing</span>
-          </div>
-          <span class="more">Add: block diagram / results →</span>
-        </div>
-
-        <div class="project" style="grid-column: span 2;">
-          <h3>Note (Optional): Add Project Links</h3>
-          <p>To make your portfolio look premium, upload screenshots to your repo and add links. Example:</p>
-          <p style="margin-top:8px;">
-            <b>GitHub Repo:</b> <a href="#" onclick="return false;">https://github.com/yourusername/yourproject</a><br>
-            <b>Report PDF:</b> upload file and link it from here
-          </p>
-          <div class="tags" style="margin-top:10px;">
-            <span class="tag">Portfolio</span>
-            <span class="tag teal">Evidence</span>
-          </div>
-        </div>
+      <div class="actions">
+        <a class="linkbtn gold" href="https://github.com/fahad-cuet/news_portal_website" target="_blank" rel="noopener">
+          View on GitHub →
+        </a>
       </div>
-    </section>
+    </div>
+
+    <!-- 2) IC Fault Detector -->
+    <div class="project">
+      <img class="project-thumb" src="assets/ic-fault-detector.jpg" alt="IC Fault Detector Screenshot">
+      <h3>IC Fault Detector</h3>
+      <p><b>Category:</b> Electronics / Testing</p>
+      <p style="margin-top:8px;">
+        Designed a system to detect faults in ICs using structured input–output verification and testing logic.
+      </p>
+      <div class="tags" style="margin-top:10px;">
+        <span class="tag">Electronics</span>
+        <span class="tag teal">Testing</span>
+      </div>
+
+      <div class="actions">
+        <a class="linkbtn gold" href="https://github.com/fahad-cuet/ic-fault-detector" target="_blank" rel="noopener">
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+
+    <!-- 3) Robotic Hand + CV Sign Language -->
+    <div class="project">
+      <img class="project-thumb" src="assets/sign-robotic-hand.jpg" alt="Robotic Hand for Sign Language Screenshot">
+      <h3>Real-Time Speech ↔ Sign Language Translation (CV + Robotic Hand)</h3>
+      <p><b>Category:</b> Computer Vision + Robotics</p>
+      <p style="margin-top:8px;">
+        Real-time bidirectional translation between speech and sign language using computer vision and a robotic hand.
+      </p>
+      <div class="tags" style="margin-top:10px;">
+        <span class="tag">CV</span>
+        <span class="tag teal">Robotics</span>
+      </div>
+
+      <div class="actions">
+        <a class="linkbtn gold" href="https://github.com/fahad-cuet/Real-Time-Bidirectional-Robotic-Hand-for-Sign-Language" target="_blank" rel="noopener">
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4) FPGA Lock-in Amplifier -->
+    <div class="project">
+      <img class="project-thumb" src="assets/fpga-lockin.jpg" alt="FPGA Lock-in Amplifier Screenshot">
+      <h3>Lock-in Amplifier with FPGA (Cyclone IV)</h3>
+      <p><b>Category:</b> FPGA / Instrumentation</p>
+      <p style="margin-top:8px;">
+        Implemented a lock-in amplifier on Cyclone IV FPGA to extract weak signals from noisy environments.
+      </p>
+      <div class="tags" style="margin-top:10px;">
+        <span class="tag">FPGA</span>
+        <span class="tag teal">Signal Processing</span>
+      </div>
+
+      <div class="actions">
+        <a class="linkbtn gold" href="https://github.com/fahad-cuet/fpga-lockin-amplifier" target="_blank" rel="noopener">
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Achievements + Certificates -->
     <section class="split">
@@ -700,24 +763,57 @@
     </section>
 
     <!-- EVIDENCE -->
-    <section id="evidence" class="card">
-      <div class="section-title">
-        <h2>Evidence / Gallery</h2>
-        <p>Add screenshots/photos to prove your work</p>
-      </div>
+   <section id="evidence" class="card">
+  <div class="section-title">
+    <h2>Evidence / Gallery</h2>
+    <p>Project screenshots + certificates</p>
+  </div>
 
-      <div class="gallery">
-        <div class="shot">Upload <b>shot1.png</b><br>and replace with an image</div>
-        <div class="shot">Project screenshot</div>
-        <div class="shot">Lab setup photo</div>
-        <div class="shot">Certificate screenshot</div>
-      </div>
+  <!-- Projects Evidence -->
+  <div class="item" style="margin-bottom:12px;">
+    <h3 style="margin:0 0 8px;">Project Evidence</h3>
 
-      <div class="mini" style="margin-top:12px;">
-        <b>How to add images:</b> upload images to your repo (e.g., <code>shot1.png</code>) then paste:
-        <code>&lt;img src="shot1.png" style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);"&gt;</code>
-      </div>
-    </section>
+    <div class="gallery">
+      <img class="shot" src="assets/news-portal.jpg" alt="News Portal Evidence"
+           style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+
+      <img class="shot" src="assets/ic-fault-detector.jpg" alt="IC Fault Detector Evidence"
+           style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+
+      <img class="shot" src="assets/sign-robotic-hand.jpg" alt="Robotic Hand Evidence"
+           style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+
+      <img class="shot" src="assets/fpga-lockin.jpg" alt="FPGA Lock-in Amplifier Evidence"
+           style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+    </div>
+  </div>
+
+  <!-- Certificates Evidence -->
+  <div class="item">
+    <h3 style="margin:0 0 8px;">Certificates</h3>
+    <p class="meta" style="margin-bottom:10px;">
+      Upload the certificate images to <code>assets/</code> and they will appear here.
+    </p>
+
+    <div class="gallery">
+      <img class="shot" src="assets/cert-cybersecurity-professionals.jpg" alt="Cybersecurity Professionals Certificate"
+           style="width:100%; height:140px; object-fit:contain; background:rgba(255,255,255,.04); padding:8px; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+
+      <img class="shot" src="assets/cert-matlab-edge.jpg" alt="Engineering Design and Analysis with MATLAB Certificate"
+           style="width:100%; height:140px; object-fit:contain; background:rgba(255,255,255,.04); padding:8px; border-radius:16px; border:1px solid rgba(255,255,255,.10);">
+
+      <!-- Optional placeholders (remove if you don't need) -->
+      <div class="shot">Add more certificates (optional)</div>
+      <div class="shot">Add more certificates (optional)</div>
+    </div>
+
+    <div class="mini" style="margin-top:12px;">
+      <b>If images don’t show:</b> check the spelling and file names (case-sensitive), and ensure they are inside the
+      <code>assets</code> folder. Then hard refresh: <b>Ctrl + F5</b>.
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="card">
