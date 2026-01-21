@@ -3,43 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Your Name] | Student Portfolio</title>
+  <title>Mohammad Ali Ahsan</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --card:#f9fafb;
-      --line:#e5e7eb;
-      --accent:#2563eb;
-      --accent2:#16a34a;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 16px;
-      --max: 1050px;
+      --bg1: #070a10;
+      --bg2: #0b1220;
+      --card: rgba(16, 24, 39, .72);
+      --card2: rgba(17, 24, 39, .60);
+      --text: #e5e7eb;
+      --muted: #a8b3c7;
+      --line: rgba(255,255,255,.10);
+      --gold: #d4af37;
+      --gold2: #f3d37a;
+      --teal: #2dd4bf;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
     }
 
-    *{box-sizing:border-box;}
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 800px at 18% 12%, rgba(212,175,55,.16), transparent 60%),
+        radial-gradient(1000px 700px at 86% 28%, rgba(45,212,191,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
     }
 
-    a{color:var(--accent); text-decoration:none;}
-    a:hover{text-decoration:underline;}
+    /* Subtle Islamic geometric pattern overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.20;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>\
+<defs>\
+<pattern id='p' width='120' height='120' patternUnits='userSpaceOnUse'>\
+<rect width='120' height='120' fill='none'/>\
+<path d='M60 10 L75 45 L110 60 L75 75 L60 110 L45 75 L10 60 L45 45 Z' fill='none' stroke='rgba(212,175,55,0.6)' stroke-width='1.1'/>\
+<circle cx='60' cy='60' r='28' fill='none' stroke='rgba(243,211,122,0.35)' stroke-width='1'/>\
+<path d='M60 32 L88 60 L60 88 L32 60 Z' fill='none' stroke='rgba(45,212,191,0.25)' stroke-width='1'/>\
+</pattern>\
+</defs>\
+<rect width='240' height='240' fill='url(%23p)'/>\
+</svg>");
+      mix-blend-mode: screen;
+    }
 
-    /* Top Bar */
+    a{ color: var(--gold2); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* Topbar */
     .topbar{
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,.9);
+      position:sticky;
+      top:0;
+      z-index:20;
       backdrop-filter: blur(10px);
+      background: rgba(7,10,16,.55);
       border-bottom: 1px solid var(--line);
-      z-index: 10;
     }
-
     .nav{
       max-width: var(--max);
       margin: 0 auto;
@@ -47,175 +81,219 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 10px;
+      gap:12px;
     }
-
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      font-weight:700;
+      gap:12px;
+      min-width: 260px;
     }
-
-    .dot{
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+    .seal{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(243,211,122,.9), rgba(212,175,55,.55) 45%, rgba(0,0,0,.35) 70%),
+        linear-gradient(135deg, rgba(212,175,55,.28), rgba(45,212,191,.12));
+      border: 1px solid rgba(212,175,55,.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .seal::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background: radial-gradient(circle, rgba(255,255,255,.16), transparent 55%);
+      transform: rotate(25deg);
+    }
+    .brand h1{
+      margin:0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .brand p{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .navlinks{
       display:flex;
-      gap:14px;
+      gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
-      font-size: 14px;
     }
-
     .navlinks a{
-      padding: 6px 10px;
+      padding: 8px 10px;
       border-radius: 999px;
+      border: 1px solid transparent;
       color: var(--text);
+      font-size: 13px;
+      opacity:.9;
     }
     .navlinks a:hover{
-      background: #eef2ff;
+      border-color: rgba(212,175,55,.35);
+      background: rgba(212,175,55,.08);
       text-decoration:none;
     }
 
-    /* Layout */
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 26px 18px 60px;
-    }
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 18px;
-      align-items:stretch;
-      margin-top: 18px;
-    }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1{
-      margin: 0 0 8px;
-      font-size: 34px;
-      letter-spacing: -0.5px;
-    }
-
-    .subtitle{
-      color: var(--muted);
-      margin: 0 0 14px;
-      font-size: 15px;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 10px;
-    }
-    .chip{
-      font-size: 13px;
-      border: 1px solid var(--line);
-      background: white;
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: var(--text);
-    }
-
-    .btns{
+    .controls{
       display:flex;
       gap:10px;
-      flex-wrap:wrap;
-      margin-top: 14px;
+      align-items:center;
+      justify-content:flex-end;
+      min-width: 180px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
-      padding:10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: white;
+      padding: 9px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       color: var(--text);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       cursor:pointer;
+      user-select:none;
     }
-    .btn.primary{
-      background: var(--accent);
-      color: white;
-      border-color: rgba(37,99,235,.4);
-    }
-    .btn.primary:hover{filter: brightness(.95); text-decoration:none;}
-    .btn:hover{background:#ffffff; text-decoration:none; box-shadow: 0 8px 18px rgba(0,0,0,.06);}
+    .btn:hover{ background: rgba(255,255,255,.10); }
 
-    /* Profile box */
-    .profile{
-      display:flex;
-      flex-direction:column;
+    .btn.gold{
+      border-color: rgba(212,175,55,.35);
+      background: rgba(212,175,55,.12);
+    }
+    .btn.gold:hover{ background: rgba(212,175,55,.18); }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 18px 70px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* Cards */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      width: 140px;
+      height: 140px;
+      top: -70px;
+      right: -70px;
+      background: radial-gradient(circle, rgba(212,175,55,.28), transparent 60%);
+      transform: rotate(10deg);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .headline{
+      font-family: "El Messiri", Inter, sans-serif;
+      font-size: 40px;
+      margin: 0 0 6px;
+      letter-spacing: .2px;
+      line-height: 1.08;
+    }
+    .subline{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,.40), transparent);
+      margin: 14px 0;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin-top: 10px;
+    }
+    .pill{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .pill span{ display:block; color: var(--muted); font-size: 12px; margin-bottom:3px; }
+    .pill strong{ font-weight: 700; }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
     }
 
-    .pfp{
-      width: 100%;
-      aspect-ratio: 1/1;
+    /* Photo */
+    .photo{
       border-radius: 18px;
-      border: 1px dashed #cbd5e1;
-      background: linear-gradient(180deg,#ffffff, #eef2ff);
+      border: 1px dashed rgba(212,175,55,.45);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(243,211,122,.18), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      aspect-ratio: 1/1;
       display:flex;
       align-items:center;
       justify-content:center;
-      color: var(--muted);
-      font-size: 14px;
       text-align:center;
-      padding: 14px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .kv{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      font-size: 14px;
-    }
-    .kv div{
-      background:white;
+    .mini{
+      background: var(--card2);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px;
+      border-radius: 16px;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 13px;
     }
-    .kv span{color: var(--muted); display:block; font-size: 12px;}
-    .kv strong{font-size: 14px;}
+    .mini b{ color: var(--gold2); }
 
     /* Sections */
-    section{
-      margin-top: 18px;
-    }
-
+    section{ margin-top: 16px; }
     .section-title{
       display:flex;
-      align-items:center;
+      align-items:flex-end;
       justify-content:space-between;
-      gap: 10px;
+      gap:10px;
       margin-bottom: 10px;
     }
-
     .section-title h2{
       margin:0;
-      font-size: 20px;
-      letter-spacing:-0.2px;
+      font-family: "El Messiri", Inter, sans-serif;
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .section-title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .grid-2{
@@ -224,140 +302,228 @@
       gap: 14px;
     }
 
-    .list{
-      margin:0;
-      padding-left: 18px;
-      color: var(--text);
-    }
-    .list li{margin: 6px 0;}
-
     .item{
-      background:white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
       padding: 14px;
     }
+    .item h3{ margin:0 0 6px; font-size: 16px; }
+    .meta{ margin:0 0 10px; color: var(--muted); font-size: 13px; }
 
-    .item h3{
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-    .meta{
-      color: var(--muted);
-      font-size: 13px;
-      margin: 0 0 10px;
-    }
+    ul{ margin:0; padding-left: 18px; }
+    li{ margin: 6px 0; }
 
     .tags{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top: 10px;
+      margin-top:10px;
     }
     .tag{
       font-size: 12px;
-      padding: 4px 8px;
+      padding: 5px 9px;
       border-radius: 999px;
-      background: #ecfeff;
-      border: 1px solid #cffafe;
-      color:#155e75;
+      border: 1px solid rgba(212,175,55,.30);
+      background: rgba(212,175,55,.10);
+      color: var(--gold2);
+    }
+    .tag.teal{
+      border-color: rgba(45,212,191,.30);
+      background: rgba(45,212,191,.10);
+      color: #bffcf0;
     }
 
-    .tag.green{
-      background:#ecfdf5;
-      border-color:#bbf7d0;
-      color:#166534;
+    /* Projects */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .project{
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      position:relative;
+      overflow:hidden;
+      min-height: 190px;
+    }
+    .project::after{
+      content:"";
+      position:absolute;
+      inset:-60%;
+      background: radial-gradient(circle, rgba(212,175,55,.18), transparent 55%);
+      transform: rotate(15deg);
+    }
+    .project *{ position:relative; z-index:1; }
+    .project h3{ margin:0 0 6px; }
+    .project p{ margin:0; color: var(--muted); font-size: 13px; }
+    .project .more{
+      display:inline-block;
+      margin-top: 10px;
+      font-weight: 600;
     }
 
-    /* Footer */
-    footer{
-      margin-top: 24px;
+    /* Achievements & Certificates */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Evidence */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .shot{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      height: 140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       color: var(--muted);
+      font-size: 12px;
       text-align:center;
+      padding: 10px;
+    }
+
+    footer{
+      text-align:center;
+      color: var(--muted);
       font-size: 13px;
-      padding: 18px 0 10px;
+      padding: 18px 0 0;
+      margin-top: 16px;
       border-top: 1px solid var(--line);
     }
 
+    /* RTL mode */
+    body.rtl{ direction: rtl; }
+    body.rtl ul{ padding-left: 0; padding-right: 18px; }
+    body.rtl .navlinks{ justify-content:flex-start; }
+    body.rtl .section-title{ flex-direction: row-reverse; }
+
     /* Responsive */
-    @media (max-width: 880px){
-      .hero{grid-template-columns: 1fr;}
-      .grid-2{grid-template-columns: 1fr;}
-      .navlinks{display:none;}
+    @media (max-width: 980px){
+      .hero{ grid-template-columns: 1fr; }
+      .projects{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: 1fr 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .navlinks{ display:none; }
+      .headline{ font-size: 34px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
   <div class="topbar">
     <div class="nav">
       <div class="brand">
-        <div class="dot"></div>
-        <div>[Your Name]</div>
+        <div class="seal" aria-hidden="true"></div>
+        <div>
+          <h1>Mohammad Ali Ahsan</h1>
+          <p>ETE, CUET • Cyber Security Enthusiast • Portfolio</p>
+        </div>
       </div>
+
       <div class="navlinks">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#activities">Activities</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#evidence">Evidence</a>
         <a href="#contact">Contact</a>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="rtlBtn" title="Toggle RTL">RTL</button>
+        <button class="btn gold" onclick="window.print()" title="Print / Save PDF">Print</button>
       </div>
     </div>
   </div>
 
-  <div class="wrap">
+  <main class="wrap">
     <!-- HERO -->
-    <div class="hero">
+    <section class="hero">
       <div class="card">
-        <h1>[Your Name]</h1>
-        <p class="subtitle">
-          Student • [Department/Program] • [Institution] <br/>
-          Interested in: [Networking / Electronics / Programming / Research]
+        <h2 class="headline">Assalamu Alaikum, I’m <span style="color:var(--gold2)">Mohammad Ali Ahsan</span>.</h2>
+        <p class="subline">
+          BSc Engineering student in <b>Electronics & Telecommunications Engineering (ETE)</b> at <b>CUET</b>.
+          Currently focused on <b>Cyber Security</b> and building practical skills through projects.
         </p>
 
-        <div class="chips">
-          <div class="chip">Student ID: [Your ID]</div>
-          <div class="chip">Semester: [Your Semester]</div>
-          <div class="chip">Location: Bangladesh</div>
+        <div class="divider"></div>
+
+        <div class="hero-grid">
+          <div class="pill">
+            <span>Focus</span>
+            <strong>Cyber Security</strong>
+          </div>
+          <div class="pill">
+            <span>Program</span>
+            <strong>BSc Engineering (ETE)</strong>
+          </div>
+          <div class="pill">
+            <span>Institution</span>
+            <strong>CUET</strong>
+          </div>
+          <div class="pill">
+            <span>Location</span>
+            <strong>Bangladesh</strong>
+          </div>
         </div>
 
-        <div class="btns">
-          <a class="btn primary" href="#projects">View Projects</a>
+        <div class="hero-actions">
+          <a class="btn gold" href="#projects">Explore Projects</a>
           <a class="btn" href="#contact">Contact</a>
-          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn" href="#evidence">Show Evidence</a>
         </div>
       </div>
 
-      <div class="card profile">
-        <div class="pfp">
-          Add your photo here (optional). <br/>
-          Replace this box with an &lt;img&gt; tag if needed.
+      <div class="card">
+        <!-- Optional: replace this box with an actual photo -->
+        <div class="photo">
+          Optional Photo Area<br>
+          Upload <b>photo.jpg</b> to the repo and replace this box with an &lt;img&gt; tag.
         </div>
 
-        <div class="kv">
-          <div><span>Course</span><strong>[Course Title]</strong></div>
-          <div><span>Instructor</span><strong>[Teacher Name]</strong></div>
-          <div><span>Email</span><strong>[yourmail@example.com]</strong></div>
+        <div class="mini">
+          <div><b>Education:</b> ETE, CUET (BSc Engineering)</div>
+          <div style="margin-top:6px;"><b>Interest:</b> Cyber Security</div>
+        </div>
+
+        <div class="mini">
+          <b>Career Objective</b><br>
+          To develop strong fundamentals and practical expertise in <b>Cyber Security</b>, and contribute to impactful engineering and security-focused projects.
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="card">
       <div class="section-title">
         <h2>About Me</h2>
+        <p>Focused • Practical • Growth mindset</p>
       </div>
-      <p>
-        I am <strong>[Your Name]</strong>, a student of <strong>[Department/Program]</strong> at
-        <strong>[Institution]</strong>. I enjoy learning through practical work and teamwork.
-        My interests include <strong>[area 1]</strong>, <strong>[area 2]</strong>, and <strong>[area 3]</strong>.
-      </p>
-      <p>
-        <strong>Career Objective:</strong> To build strong fundamentals in <strong>[your field]</strong>
-        and apply my skills in real-world projects while improving my communication and problem-solving abilities.
-      </p>
+      <div class="item">
+        <p style="margin:0;">
+          I am <b>Mohammad Ali Ahsan</b>, a student of <b>Electronics & Telecommunications Engineering</b> at <b>CUET</b>.
+          Alongside my academic journey, I’m actively working to skill up in <b>Cyber Security</b>.
+          I enjoy building projects that combine engineering, software, and real-world problem solving.
+        </p>
+        <div class="tags">
+          <span class="tag">Discipline</span>
+          <span class="tag teal">Consistency</span>
+          <span class="tag">Practical Learning</span>
+        </div>
+      </div>
     </section>
 
     <!-- EDUCATION + SKILLS -->
@@ -365,57 +531,63 @@
       <div id="education" class="card">
         <div class="section-title">
           <h2>Education</h2>
+          <p>Academic background</p>
         </div>
 
         <div class="item">
-          <h3>[Your Degree] — [Institution]</h3>
-          <p class="meta">Year: [ ] • CGPA/Result: [ ]</p>
-          <ul class="list">
-            <li>Key courses: [Course 1], [Course 2], [Course 3]</li>
-            <li>Lab work: [Networking Lab / Electronics Lab / etc.]</li>
+          <h3>BSc Engineering — ETE, CUET</h3>
+          <p class="meta">Currently Studying</p>
+          <ul>
+            <li>Department: Electronics & Telecommunications Engineering</li>
+            <li>Focus area: Cyber Security (skill development)</li>
           </ul>
         </div>
 
         <div class="item" style="margin-top:12px;">
-          <h3>HSC — [College]</h3>
-          <p class="meta">Year: [ ] • GPA: [ ]</p>
+          <h3>HSC (Batch 2021) — Chattogram Govt Model College</h3>
+          <p class="meta">GPA: 5.00</p>
         </div>
 
         <div class="item" style="margin-top:12px;">
-          <h3>SSC — [School]</h3>
-          <p class="meta">Year: [ ] • GPA: [ ]</p>
+          <h3>SSC (Batch 2019) — Hazi Mohammad Mohsin Govt High School</h3>
+          <p class="meta">GPA: 5.00</p>
         </div>
       </div>
 
       <div id="skills" class="card">
         <div class="section-title">
           <h2>Skills</h2>
+          <p>What I’m building</p>
         </div>
 
         <div class="item">
-          <h3>Technical Skills</h3>
-          <ul class="list">
-            <li>Programming: [C/C++ / Python / Java]</li>
-            <li>Tools: [Cisco Packet Tracer / Proteus / MATLAB / MS Office]</li>
-            <li>Areas: [Networking / DBMS / Microcontroller / Web]</li>
+          <h3>Core Focus</h3>
+          <ul>
+            <li>Cyber Security fundamentals (ongoing learning)</li>
+            <li>Project development mindset (research + implementation)</li>
+            <li>Hardware + software integration experience</li>
           </ul>
+          <div class="tags">
+            <span class="tag">Security</span>
+            <span class="tag teal">Engineering</span>
+            <span class="tag">Research</span>
+          </div>
         </div>
 
         <div class="item" style="margin-top:12px;">
           <h3>Soft Skills</h3>
-          <ul class="list">
-            <li>Communication & presentation</li>
-            <li>Teamwork</li>
+          <ul>
+            <li>Teamwork & communication</li>
+            <li>Presentation & leadership (competitive events)</li>
             <li>Time management</li>
-            <li>Problem solving</li>
           </ul>
         </div>
 
         <div class="item" style="margin-top:12px;">
           <h3>Languages</h3>
-          <ul class="list">
+          <ul>
             <li>Bangla — Native</li>
-            <li>English — [Good/Very good]</li>
+            <li>English — Strong</li>
           </ul>
         </div>
       </div>
@@ -424,90 +596,172 @@
     <!-- PROJECTS -->
     <section id="projects" class="card">
       <div class="section-title">
-        <h2>Projects / Assignments</h2>
+        <h2>Projects</h2>
+        <p>Selected academic and engineering works</p>
       </div>
 
-      <div class="item">
-        <h3>[Project Title 1]</h3>
-        <p class="meta">Tools/Tech: [e.g., Cisco Packet Tracer] • Year/Semester: [ ]</p>
-        <ul class="list">
-          <li><strong>Objective:</strong> [What you wanted to do]</li>
-          <li><strong>What I did:</strong> [Your contribution]</li>
-          <li><strong>Outcome:</strong> [Result + what you learned]</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Networking</span>
-          <span class="tag green">Lab</span>
+      <div class="projects">
+        <div class="project">
+          <h3>News Portal Website (Dynamic News System)</h3>
+          <p><b>Category:</b> Web Development</p>
+          <p style="margin-top:8px;">A news portal with a dynamic news publishing system to manage and display updates efficiently.</p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Web</span>
+            <span class="tag teal">Dynamic</span>
+          </div>
+          <span class="more">Add: screenshots / GitHub repo link →</span>
+        </div>
+
+        <div class="project">
+          <h3>IC Fault Detector</h3>
+          <p><b>Category:</b> Electronics / Testing</p>
+          <p style="margin-top:8px;">A system designed to detect faults in ICs through structured input-output verification.</p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Electronics</span>
+            <span class="tag teal">Testing</span>
+          </div>
+          <span class="more">Add: circuit image / result photo →</span>
+        </div>
+
+        <div class="project">
+          <h3>Real-Time Speech ↔ Sign Language Translation (CV + Robotic Hand)</h3>
+          <p><b>Category:</b> Computer Vision + Robotics</p>
+          <p style="margin-top:8px;">A real-time bidirectional translation system using computer vision and a robotic hand for sign gestures.</p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">CV</span>
+            <span class="tag teal">Robotics</span>
+          </div>
+          <span class="more">Add: demo video link / photos →</span>
+        </div>
+
+        <div class="project">
+          <h3>Lock-in Amplifier with FPGA (Cyclone IV)</h3>
+          <p><b>Category:</b> FPGA / Instrumentation</p>
+          <p style="margin-top:8px;">Implemented a lock-in amplifier system using FPGA Cyclone IV for signal extraction in noisy environments.</p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">FPGA</span>
+            <span class="tag teal">Signal Processing</span>
+          </div>
+          <span class="more">Add: block diagram / results →</span>
+        </div>
+
+        <div class="project" style="grid-column: span 2;">
+          <h3>Note (Optional): Add Project Links</h3>
+          <p>To make your portfolio look premium, upload screenshots to your repo and add links. Example:</p>
+          <p style="margin-top:8px;">
+            <b>GitHub Repo:</b> <a href="#" onclick="return false;">https://github.com/yourusername/yourproject</a><br>
+            <b>Report PDF:</b> upload file and link it from here
+          </p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Portfolio</span>
+            <span class="tag teal">Evidence</span>
+          </div>
         </div>
       </div>
-
-      <div class="item" style="margin-top:12px;">
-        <h3>[Project Title 2]</h3>
-        <p class="meta">Tools/Tech: [e.g., C/C++ / Proteus] • Year/Semester: [ ]</p>
-        <ul class="list">
-          <li><strong>Objective:</strong> [ ]</li>
-          <li><strong>What I did:</strong> [ ]</li>
-          <li><strong>Outcome:</strong> [ ]</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Programming</span>
-          <span class="tag green">Assignment</span>
-        </div>
-      </div>
-
-      <p class="meta" style="margin-top:12px;">
-        Tip: Add screenshots of your projects below (Packet Tracer topology, code, reports).
-      </p>
     </section>
 
-    <!-- ACTIVITIES -->
-    <section id="activities" class="card">
-      <div class="section-title">
-        <h2>Achievements & Activities</h2>
+    <!-- Achievements + Certificates -->
+    <section class="split">
+      <div id="achievements" class="card">
+        <div class="section-title">
+          <h2>Achievements</h2>
+          <p>Competitions and recognition</p>
+        </div>
+        <div class="item">
+          <ul>
+            <li><b>High Recommendation (1st Place)</b> — CUET Intra MUN 2023</li>
+            <li><b>Runner’s Up</b> — Face The Case Competition (organized by ETE, CUET)</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Leadership</span>
+            <span class="tag teal">Communication</span>
+            <span class="tag">Competition</span>
+          </div>
+        </div>
       </div>
-      <ul class="list">
-        <li>[Club member / Volunteer / Event organizer]</li>
-        <li>[Sports / Debate / Contest participation]</li>
-        <li>[Any awards or scholarships]</li>
-      </ul>
+
+      <div id="certificates" class="card">
+        <div class="section-title">
+          <h2>Certificates</h2>
+          <p>Training and skill development</p>
+        </div>
+        <div class="item">
+          <ul>
+            <li><b>Cybersecurity Professionals</b> — IT Business Incubator CUET (with Diligite LTD)</li>
+            <li><b>Engineering Design and Analysis with MATLAB</b> — IICT, CUET (EDGE Project, ICT Division Bangladesh)</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Cybersecurity</span>
+            <span class="tag teal">MATLAB</span>
+            <span class="tag">Training</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCE -->
+    <section id="evidence" class="card">
+      <div class="section-title">
+        <h2>Evidence / Gallery</h2>
+        <p>Add screenshots/photos to prove your work</p>
+      </div>
+
+      <div class="gallery">
+        <div class="shot">Upload <b>shot1.png</b><br>and replace with an image</div>
+        <div class="shot">Project screenshot</div>
+        <div class="shot">Lab setup photo</div>
+        <div class="shot">Certificate screenshot</div>
+      </div>
+
+      <div class="mini" style="margin-top:12px;">
+        <b>How to add images:</b> upload images to your repo (e.g., <code>shot1.png</code>) then paste:
+        <code>&lt;img src="shot1.png" style="width:100%; height:140px; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.10);"&gt;</code>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="card">
       <div class="section-title">
         <h2>Contact</h2>
+        <p>Professional contact details</p>
       </div>
 
       <div class="grid-2">
         <div class="item">
           <h3>Details</h3>
-          <p class="meta">Feel free to reach out for academic collaboration.</p>
-          <ul class="list">
-            <li><strong>Email:</strong> [yourmail@example.com]</li>
-            <li><strong>Phone:</strong> [01XXXXXXXXX]</li>
-            <li><strong>LinkedIn:</strong> <a href="#">[optional link]</a></li>
-            <li><strong>GitHub:</strong> <a href="#">[optional link]</a></li>
+          <p class="meta">Fill these with your real info (email is enough).</p>
+          <ul>
+            <li><b>Email:</b> yourmail@example.com</li>
+            <li><b>GitHub:</b> <a href="#" onclick="return false;">https://github.com/yourusername</a></li>
+            <li><b>LinkedIn:</b> <a href="#" onclick="return false;">(optional)</a></li>
           </ul>
         </div>
 
         <div class="item">
           <h3>Declaration</h3>
-          <p>
-            I, <strong>[Your Name]</strong>, declare that the information in this portfolio is true and correct
+          <p style="margin:0;">
+            I, <b>Mohammad Ali Ahsan</b>, declare that the information in this portfolio is true and correct
             to the best of my knowledge.
           </p>
-          <p class="meta">Signature: ____________________</p>
+          <p class="meta" style="margin-top:10px;">Signature: ____________________</p>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> [Your Name] • Student Portfolio Website
+      © <span id="year"></span> Mohammad Ali Ahsan • Arabian/Islamic Themed Portfolio • Hosted on GitHub Pages
     </footer>
-  </div>
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // RTL toggle
+    var rtlBtn = document.getElementById("rtlBtn");
+    rtlBtn.addEventListener("click", function(){
+      document.body.classList.toggle("rtl");
+      rtlBtn.textContent = document.body.classList.contains("rtl") ? "LTR" : "RTL";
+    });
   </script>
 </body>
 </html>
